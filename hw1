@@ -1,0 +1,39 @@
+#include  <stdio.h>
+
+//#include <stdbool.h>
+
+int main() {
+    printf("bienvenue! \n you'll decide which floor you would like to go");
+    printf("input a number from 1 to 5 or use up or down keyboard to go up or down\n");
+   short elevator = 1;
+   while (elevator) {
+        int * floorLevel;
+        scanf("%d", floorLevel); 
+        switch (*floorLevel) {
+        case 1:
+            printf("you're on floor:\n");
+            printf("%d", *floorLevel);
+            break; 
+        case 2:
+            printf("you're on floor:\n");
+            scanf("%i", floorLevel);
+            break; 
+        case 3:
+            printf("you're on floor:\n");
+            scanf("%d", floorLevel);
+            break;
+        case 4:
+            printf("you're on floor: \n");
+            scanf("%d", floorLevel);
+            break; 
+        case 5:
+            printf("you're on floor: \n");
+            scanf("%d", floorLevel);
+            break; 
+        default:
+            printf("wrong input. elevator doesn't know how to work now.\n");
+        }
+        
+    }
+    
+}
