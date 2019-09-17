@@ -16,22 +16,24 @@ int main() {
    
    while (elevatorRunning) {
         
-        scanf("%d", floorLevel);
+        scanf("%d", &floorLevel);
         
         switch (floorLevel) {
         case 0:
             printf("you're on floor:first floor\n");
-            //printf("%d", floorLevel);
-            //compiler saied that format ‘%d’ expects argument of type ‘int *’, 
+            //printf("%d", &floorLevel);
+            
             //codes cannot run with printf()here, so i commented it out
             break;
         case 1:
             printf("you're on 2nd floor\n");
             //scanf("%d", floorLevel);
+            //compiler saied that format ‘%d’ expects argument of type ‘int *’, 
             break;
         case 2:
             printf("you've reached the top floor. Välkommen åter!\n");
-            //scanf("%d", floorLevel);
+            scanf("%d", &floorLevel);
+            
             
             break;
     
