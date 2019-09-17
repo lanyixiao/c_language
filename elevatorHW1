@@ -1,0 +1,44 @@
+
+#include  <stdio.h>
+
+int main() {
+    int firstFloor = 0;
+    int topFloor = 2;
+    
+    printf("bienvenue! \n what floor would you like to visit? \n");
+    printf("push the button from 0 to 2 \n");
+    
+    int elevatorRunning = 1;
+   
+   /*for(floorLevel = 0; floorLevel<=2; floorLevel++){
+       
+   }*/
+   
+   while (elevatorRunning) {
+        
+        scanf("%d", floorLevel);
+        
+        switch (floorLevel) {
+        case 0:
+            printf("you're on floor:first floor\n");
+            //printf("%d", floorLevel);
+            //format ‘%d’ expects argument of type ‘int *’, codes cannot run with printf()here, so i commented it out
+            break;
+        case 1:
+            printf("you're on 2nd floor\n");
+            //scanf("%d", floorLevel);
+            break;
+        case 2:
+            printf("you've reached the top floor. Välkommen åter!\n");
+            //scanf("%d", floorLevel);
+            
+            break;
+    
+        default:
+            printf("wrong input. must be between 0 to 2. or the elevator risks to malfunction.\n");
+            printf("sadly, i figure this hard-working elevator just malfunctioned. ");
+        }
+       
+    }
+   
+}
