@@ -20,21 +20,17 @@ int main() {
         
         switch (floorLevel) {
         case 0:
-            printf("you're on floor:first floor\n");
-            //printf("%d", &floorLevel);
-            
-            //codes cannot run with printf()here, so i commented it out
+            printf("you're on the 1st floor\n");
+            printf("%d", &firstFloor);            
             break;
         case 1:
             printf("you're on 2nd floor\n");
-            //scanf("%d", floorLevel);
+            //scanf("%d", &floorLevel);
             //compiler saied that format ‘%d’ expects argument of type ‘int *’, 
             break;
         case 2:
             printf("you've reached the top floor. Välkommen åter!\n");
-            scanf("%d", &floorLevel);
-            
-            
+            scanf("%d", &topFloor);            
             break;
     
         default:
