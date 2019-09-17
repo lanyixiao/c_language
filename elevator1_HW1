@@ -15,7 +15,7 @@ int main() {
    }*/
    
    while (elevatorRunning) {
-        
+        int floorLevel;
         scanf("%d", &floorLevel);
         
         switch (floorLevel) {
