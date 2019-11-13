@@ -1,1 +1,143 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+const int topFloor = 5;
+const int firstFloor = 1; //actually, so far this varibale is not needed
+int floor[5] = {}; // 5 floors total
+ 
+int currentFloor; 
+int targetFloor;
+
+
+void firstFloorWelcoming();
+//void getCurrentFloor();
+//void getTargetFloor();
+//void upOrDown();
+void floorUpToX();
+void floorDownToX();
+//void startOver(); //go back to the 1st floor
+
+int main()
+{   
+    
+    firstFloorWelcoming();
+  	getTargetFloor();
+	  /*void getCurrentFloor(){
+		int currentFloor;
+		printf("");
+		
+	  }*/
+	//let's assume the elevator has to set off from 1st floor
+	
+	//if (currentFloor = targetFloor) {
+	//	printf("you've arrived!'");
+	//	
+	//}	
+	//else(currentFloor < targetFloor){
+	
+		
+	
+	if(targetFloor > firstFloor){
+		floorUpToX();
+		currentFloor = targetFloor;
+		printf("you've arrived!'");
+	}
+	
+	//else(currentFloor > targetFloor){
+	else (targetFloor < currentFloor){
+		floorDownToX();
+		currentFloor = targetFloor;
+		printf("you've arrived!'");
+	}
+	
+	//floorUpToX();
+	//floorDownToX();    
+     
+    return 0;
+}
+
+void firstFloorWelcoming(){
+	printf("bienvenue!");
+	printf("\nthe building has 5 floors, form 1st to 5th");
+	printf("now let's set off");
+}
+
+//void getTargetFloor(){
+//			
+//		int targetFloor[4];
+//		printf("what floor or floors do you want to go? \n");
+//		//store the input of floor into array, up to 4
+//		//since there's only 5 floor
+//		//assuming nobody in the 1st floor wants to go to 1st floor
+//		for(int a = 0; a < 4; a++) {
+//     		scanf("%d", &targetFloor[a]);
+// 		 }
+//		
+//		//using for loop to display all the visiting floors
+//		
+//		for(int a = 0; a < 4; a++) {
+//     		printf("so you want to go to Floor %d", targetFloor[a])  
+// 		 }
+//		
+// 	
+//	}
+
+	void getTargetFloor(){
+		
+		int userAttempt;
+		
+		printf("___HOW MANY floors do you want to visit, \nup to 4 floors\n");
+		scanf("%d", &userAttempt);
+		printf("\nso, there are %d floors you want to visit\n", userAttempt);
+	
+		//store the input of floor into array, up to 4, since there's only 5 floor
+		//assuming nobody in the 1st floor wants to go to 1st floor	
+		int targetFloor[4];
+		
+		for(int a = 0; a < 4; a++) {
+			targetFloor[a] = a + 1;		
+     					
+     	}
+		
+		int x = 0;
+		while( x < userAttempt){
+			
+				//seems like my for loop fail to store and display all the visiting floors
+				
+     			for(int b = 0; b < userattempt; b++) {
+	     		//printf("so you want to go to Floor %d", targetFloor[]);
+	 		 	printf("\n___now, what floor or floors do you want to go?\n");
+	 		 	scanf("%d", &targetFloor[b]); 	
+				printf("so you want to go to Floor %d", targetFloor[b]);
+				}
+				
+				//i don't know why the for loop doesnt work, so i use a while loop...
+	 		 	x++;
+        //sadly, the while loop doesn't seem function either
+        //however, the for loop works if i assign a solid number to b
+	 		 	//userAttempt--; 
+		}
+		
+ 	
+	}
+
+	void floorUpToX(){
+		for(int i = 0; i < 5; i++){
+    		floor[i] = i + 1; //no basement, sorry
+		}
+	
+		for (int j = 0; j < 5; j++ ) {
+      		printf("you're now on FLOOR %d.\n", floor[j] );
+   		}
+	}
+   
+   	void floorDownToX(){
+		for(int i = 0; i < topFloor + 1 ; i++){
+    		floor[i] = i;
+		}
+	
+		for (int j = topFloor; j > targetFloor; j--) {
+      		printf("you're now on FLOOR %d.\n", floor[j] );
+   		}
+	}
 
