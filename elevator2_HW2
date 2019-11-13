@@ -4,6 +4,7 @@
 const int topFloor = 5;
 const int firstFloor = 1; //actually, so far this varibale is not needed
 int floor[5] = {}; // 5 floors total
+int targetFloor[4];
  
 int currentFloor; 
 int targetFloor;
@@ -122,11 +123,11 @@ void firstFloorWelcoming(){
 	}
 
 	void floorUpToX(){
-		for(int i = 0; i < 5; i++){
+		for(int i = 0; i < topFloor; i++){
     		floor[i] = i + 1; //no basement, sorry
 		}
 	
-		for (int j = 0; j < 5; j++ ) {
+		for (int j = 0; j < targetFloor; j++ ) {
       		printf("you're now on FLOOR %d.\n", floor[j] );
    		}
 	}
