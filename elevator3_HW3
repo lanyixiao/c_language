@@ -1,1 +1,166 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int *ptrFloor = [5];
+int floor[5] = {}; // 5 floors total
+ptrFloor = &floor;
+//memory allocated in main(); check there
+
+//const int firstFloor = 1;
+int targetFloor[4];
+int currentFloor; 
+int targetFloor;
+
+void firstFloorWelcoming();
+//void getCurrentFloor();
+void getTargetFloor();
+//void upOrDown();
+void floorUpToX();
+void floorDownToX();
+
+
+int main()
+{   
+    firstFloorWelcoming();
+    
+	ptrFloor = (int*)malloc(floor * sizeof(int));
+	
+	if (ptrFloor == NULL) 
+	{ 
+        printf("Memory fails to be allocated.\n"); 
+        printf("don't take the elevator. danger!");
+        return(1); 
+    } 
+    else 
+	{     
+        printf("terrific, the elevator is ready...\n"); 
+        printf("but still, we'd like to test it before you can use. please wait 1s...")
+  
+        //iterate pointer array with for loop
+        for (i = 0; i < floor; ++i) { 
+            ptrFloor[i] = i + 1; 
+        } 
+  
+        // test the result of array, these codes are not needed
+        for (j = 0; j < floor; ++j) { 
+            printf("this is floor %d.\n", ptrFloor[j]); 
+        } 
+    } 
+
+	//i hate the getTargetFloor() function, but so far change it is too painstaking
+	getTargetFloor();
+	/*void getCurrentFloor(){
+		int currentFloor;
+		printf("");
+		
+	}*/
+	//let's assume the elevator has to set off from 1st floor
+	
+	//if (currentFloor = targetFloor) {
+	//	printf("you've arrived!'");
+	//}	
+	//else(currentFloor < targetFloor){
+	
+	
+	if(targetFloor > *ptrFloor[1]){
+		floorUpToX();
+		currentFloor = targetFloor;
+		printf("you've arrived!'");
+	}
+	
+	//else(currentFloor > targetFloor){
+	else (targetFloor < currentFloor){
+		floorDownToX();
+		currentFloor = targetFloor;
+		printf("you've arrived!'");
+	}
+	
+	//floorUpToX();
+	//floorDownToX();    
+     
+    return 0;
+}
+
+void firstFloorWelcoming(){
+	printf("bienvenue!");
+	printf("\nthe building has 5 floors, form 1st to 5th");
+	printf("now let's set off");
+}
+
+//void getTargetFloor(){
+//			
+//		int targetFloor[4];
+//		printf("what floor or floors do you want to go? \n");
+//		//store the input of floor into array, up to 4
+//		//since there's only 5 floor
+//		//assuming nobody in the 1st floor wants to go to 1st floor
+//		for(int a = 0; a < 4; a++) {
+//     		scanf("%d", &targetFloor[a]);
+// 		 }
+//		
+//		//using for loop to display all the visiting floors
+//		
+//		for(int a = 0; a < 4; a++) {
+//     		printf("so you want to go to Floor %d", targetFloor[a])  
+// 		 }
+//		
+// 	
+//	}
+
+	void getTargetFloor(){
+		
+		int userAttempt;
+		
+		printf("___HOW MANY floors do you want to visit, \nup to 4 floors\n");
+		scanf("%d", &userAttempt);
+		printf("\nso, there are %d floors you want to visit\n", userAttempt);
+	
+		//store the input of floor into array, up to 4, since there's only 5 floor
+		//assuming nobody in the 1st floor wants to go to 1st floor	
+		int targetFloor[4];
+		
+		for(int a = 0; a < 4; a++) {
+			targetFloor[a] = a + 1;		
+     					
+     	}
+		
+		int x = 0;
+		while( x < userAttempt){
+			
+				//seems like my for loop fail to store and display all the visiting floors
+				
+     			for(int b = 0; b < userattempt; b++) {
+	     		//printf("so you want to go to Floor %d", targetFloor[]);
+	 		 	printf("\n___now, what floor or floors do you want to go?\n");
+	 		 	scanf("%d", &targetFloor[b]); 	
+				printf("so you want to go to Floor %d", targetFloor[b]);
+				}
+				
+				//i don't know why the for loop doesnt work, so i use a while loop...
+	 		 	x++;
+	 		 	userAttempt--;
+		}
+		
+ 	
+	}
+
+	void floorUpToX(){
+		for(int i = 0; i < *ptrFloor[5]; i++){
+    		*ptrfloor[i] = i + 1; //no basement, sorry
+		}
+	
+		for (int j = 0; j < targetFloor; j++ ) {
+      		printf("you're now on FLOOR %d.\n", *ptrFloor[j] );
+   		}
+	}
+   
+   	void floorDownToX(){
+		for(int i = 0; i < *ptrFloor[5] + 1 ; i++){
+    		*ptrfloor[i] = i;
+		}
+	
+		for (int j = *ptrFloor[5]; j > targetFloor; j--) {
+      		printf("you're now on FLOOR %d.\n", *ptrFloor[j] );
+   		}
+	}
 
