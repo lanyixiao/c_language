@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 const int topFloor = 5;
-const int firstFloor = 1; //actually, so far this varibale is not needed
 int floor[5] = {}; // 5 floors total
 int targetFloor[4];
  
@@ -12,7 +11,7 @@ int targetFloor;
 
 void firstFloorWelcoming();
 //void getCurrentFloor();
-//void getTargetFloor();
+void getTargetFloor();
 //void upOrDown();
 void floorUpToX();
 void floorDownToX();
