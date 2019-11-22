@@ -1,1 +1,199 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h> //for sleep()
+
+
+//create a linke list
+struct FloorList {
+	int data;
+	struct FloorList *next;
+};
+//typedef struct floorList *node;
+
+
+void print_floorTesting(struct FloorList *n)
+{
+	while(n != NULL){
+	    printf("CHECKING...\n");
+	    sleep(1);
+		printf("floor %d is clear\n", n->data);
+		sleep(2);
+		n = n->next;
+	
+	}
+	printf("you may now use the elevator.");
+}
+
+int *ptrFloor = [5];
+int floor[5] = {}; // 5 floors total
+ptrFloor = &floor;
+int targetFloor[4];
+
+int currentFloor; 
+int targetFloor;
+
+
+void firstFloorWelcoming();
+//void getCurrentFloor();
+void getTargetFloor();
+//void upOrDown();
+void floorUpToX();
+void floorDownToX();
+//void startOver(); //go back to the 1st floor
+
+int main()
+{   
+	firstFloorWelcoming();
+    
+    //*********new codes here*************
+   
+	struct floorList* head = NULL;
+	struct floorList* second = NULL;
+	struct floorList* third = NULL;
+	struct floorList* fourth = NULL;
+	struct floorList* fifth = NULL;
+
+	
+	
+	head = (struct floorList*)malloc(sizeof(struct floorList));
+	second = (struct floorList*)malloc(sizeof(struct floorList));
+	third = (struct floorList*)malloc(sizeof(struct floorList));
+	fourth = (struct floorList*)malloc(sizeof(struct floorList));
+	fifth = (struct floorList*)malloc(sizeof(struct floorList));
+
+
+	head->data = 1;
+	head->next = second;
+	second->data = 2;
+	second->next = third;
+	third->data = 3;
+	third->next = fourth;
+	fourth->data = 4;
+	fourth->next = fifth;
+	fifth->data = 5;
+	fifth->next = NULL;
+	
+	print_floorTesting(head);	
+
+
+ //*********new codes end*************	
+    
+//
+//void addToList(struct FloorList **head, int new_data)
+//{
+//	struct FloorList* new_floorList = (struct FloorList*)malloc(sizeof(struct FloorList));
+//	struct FloorList *last = *head;
+//	new_floorList->data = new_data;
+//	new_floorList->next = NULL;
+//	if(*head == NULL){
+//		*head = new_floorList;
+//		return;
+//	}
+//
+//	while(last->next != NULL){
+//		last = last->next;
+//	}
+//	last->next = new_floorList;
+//}
+
+	//i hate the getTargetFloor() function, but so far change it is too painstaking
+	getTargetFloor();
+	/*void getCurrentFloor(){
+		int currentFloor;
+		printf("");
+		
+	}*/
+	//let's assume the elevator has to set off from 1st floor
+	
+	//if (currentFloor = targetFloor) {
+	//	printf("you've arrived!'");
+	//	
+	//}	
+	//else(currentFloor < targetFloor){
+	
+	
+	if(targetFloor > firstFloor){
+		floorUpToX();
+		currentFloor = targetFloor;
+		printf("you've arrived!'");
+	}
+	
+	//else(currentFloor > targetFloor){
+	else (targetFloor < currentFloor){
+		floorDownToX();
+		currentFloor = targetFloor;
+		printf("you've arrived!'");
+	}
+	
+	//floorUpToX();
+	//floorDownToX();    
+     
+    return 0;
+}
+
+void firstFloorWelcoming(){
+	printf("bienvenue!");
+	printf("\nthe building has 5 floors, form 1st to 5th");
+	printf("now let's set off");
+}
+
+
+
+	void getTargetFloor(){
+		
+		int userAttempt;
+		
+		printf("___HOW MANY floors do you want to visit, \nup to 4 floors\n");
+		scanf("%d", &userAttempt);
+		printf("\nso, there are %d floors you want to visit\n", userAttempt);
+	
+		//store the input of floor into array, up to 4, since there's only 5 floor
+		//assuming nobody in the 1st floor wants to go to 1st floor	
+		int targetFloor[4];
+		
+		for(int a = 0; a < 4; a++) {
+			targetFloor[a] = a + 1;		
+     					
+     	}
+		
+		int x = 0;
+		while( x < userAttempt){
+			
+				//seems like my for loop fail to store and display all the visiting floors
+				
+     			for(int b = 0; b < userattempt; b++) {
+	     		//printf("so you want to go to Floor %d", targetFloor[]);
+	 		 	printf("\n___now, what floor or floors do you want to go?\n");
+	 		 	scanf("%d", &targetFloor[b]); 	
+				printf("so you want to go to Floor %d", targetFloor[b]);
+				}
+				
+				//i don't know why the for loop doesnt work, so i use a while loop...
+	 		 	x++;
+	 		 	userAttempt--;
+		}
+		
+ 	
+	}
+
+	void floorUpToX(){
+		for(int i = 0; i < *ptrFloor[5]; i++){
+    		*ptrfloor[i] = i + 1; //no basement, sorry
+		}
+	
+		for (int j = 0; j < targetFloor; j++ ) {
+      		printf("you're now on FLOOR %d.\n", *ptrFloor[j] );
+   		}
+	}
+   
+   	void floorDownToX(){
+		for(int i = 0; i < *ptrFloor[5] + 1 ; i++){
+    		*ptrfloor[i] = i;
+		}
+	
+		for (int j = *ptrFloor[5]; j > targetFloor; j--) {
+      		printf("you're now on FLOOR %d.\n", *ptrFloor[j] );
+   		}
+	}
+
 
